@@ -13,11 +13,14 @@ check: node_modules
 
 .PHONY: clean
 clean:
-	rm -f reference/.gitignore $(SCHEMA_FILE)
+	rm -fr doc reference/.gitignore $(SCHEMA_FILE)
 
 .PHONY: distclean
 distclean: clean
 	rm -fr node_modules
+
+doc: node_modules $(SCHEMA_FILE)
+	npx redoc-cli bundle -o $@/index.html $(SCHEMA_FILE)
 
 node_modules:
 ifeq ($(CI),true)

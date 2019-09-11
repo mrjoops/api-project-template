@@ -32,3 +32,11 @@ You can define `UPLOAD_URL` if you don't want to send your file to Bitbucket (ot
 ```
 make upload
 ```
+
+### Generate documentation
+
+Documentation will be generated in the `doc` folder using this command:
+
+```
+make doc
+```
