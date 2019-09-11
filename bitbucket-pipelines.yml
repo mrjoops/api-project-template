@@ -31,6 +31,12 @@ pipelines:
           name: Generate documentation
           script:
             - make doc
+      - step:
+          caches:
+            - npm
+          name: Publish documentation
+          script:
+            - make publish
 
 definitions:
   caches:

@@ -40,3 +40,12 @@ Documentation will be generated in the `doc` folder using this command:
 ```
 make doc
 ```
+
+### Publish documentation to Netlify
+
+You must define `NETLIFY_AUTH_TOKEN` and `NETLIFY_SITE_ID` first, then run this command:
+
+```
+make publish
+```
+

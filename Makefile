@@ -29,6 +29,16 @@ else
 	npm install
 endif
 
+.PHONY: publish
+publish: doc node_modules
+ifndef NETLIFY_AUTH_TOKEN
+	$(error NETLIFY_AUTH_TOKEN is not set)
+endif
+ifndef NETLIFY_SITE_ID
+	$(error NETLIFY_SITE_ID is not set)
+endif
+	npx netlify deploy --dir="doc/" --json --prod
+
 .PHONY: upload
 upload: $(SCHEMA_FILE)
 	curl -X POST $(UPLOAD_URL) --form files=@"$(SCHEMA_FILE)"
