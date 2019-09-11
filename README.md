@@ -24,3 +24,11 @@ make
 ```
 
 Paths are prefixed with the base name of the description file, so if you have a `GET /:id` operation in your `reference/user/openapi.yaml` description file, it will be transformed into a `GET /user/:id` operation.
+
+### Upload combined API description
+
+You can define `UPLOAD_URL` if you don't want to send your file to Bitbucket (otherwise you just have to define `BB_AUTH_STRING`), then run this command:
+
+```
+make upload
+```

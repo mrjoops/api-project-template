@@ -3,6 +3,7 @@ BITBUCKET_COMMIT ?= v0.0.0
 BITBUCKET_TAG    ?= $(BITBUCKET_COMMIT)
 PROJECT_VERSION  ?= $(subst v,,$(BITBUCKET_TAG))
 SCHEMA_FILE      ?= schema-$(BITBUCKET_TAG).yaml
+UPLOAD_URL       ?= https://$(BB_AUTH_STRING)@api.bitbucket.org/2.0/repositories/$(BITBUCKET_REPO_OWNER)/$(BITBUCKET_REPO_SLUG)/downloads
 
 export PROJECT_VERSION
 
@@ -24,6 +25,10 @@ ifeq ($(CI),true)
 else
 	npm install
 endif
+
+.PHONY: upload
+upload: $(SCHEMA_FILE)
+	curl -X POST $(UPLOAD_URL) --form files=@"$(SCHEMA_FILE)"
 
 $(SCHEMA_FILE): node_modules
 ifndef PROJECT_CONTACT
