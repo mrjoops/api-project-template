@@ -1,0 +1,16 @@
+image: node
+
+pipelines:
+  pull-requests:
+    '**':
+      - step:
+          caches:
+            - npm
+          name: Validate schemas
+          script:
+            - make check
+
+definitions:
+  caches:
+    npm: $HOME/.npm
+
