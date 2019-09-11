@@ -14,3 +14,13 @@ Run this command:
 ```
 make check
 ```
+
+### Combine API descriptions
+
+Just run this command:
+
+```
+make
+```
+
+Paths are prefixed with the base name of the description file, so if you have a `GET /:id` operation in your `reference/user/openapi.yaml` description file, it will be transformed into a `GET /user/:id` operation.

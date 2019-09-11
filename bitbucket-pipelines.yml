@@ -9,6 +9,16 @@ pipelines:
           name: Validate schemas
           script:
             - make check
+  tags:
+    '*':
+      - step:
+          artifacts:
+            - schema-*.yaml
+          caches:
+            - npm
+          name: Combine schemas
+          script:
+            - make
 
 definitions:
   caches:
