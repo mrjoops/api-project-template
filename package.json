@@ -1,0 +1,29 @@
+{
+  "name": "@mrjoops/api-project-template",
+  "version": "1.0.0",
+  "description": "A template project for creating REST API",
+  "main": "scripts/combine-schemas.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mrjoops/api-project-template.git"
+  },
+  "keywords": [
+    "openapi",
+    "stoplight",
+    "api",
+    "rest"
+  ],
+  "author": "Alexandre Lahure <alexandre@lahu.re>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mrjoops/api-project-template/issues"
+  },
+  "homepage": "https://github.com/mrjoops/api-project-template#readme",
+  "devDependencies": {
+    "@stoplight/spectral": "^4.1.1",
+    "json-schema-ref-parser": "^7.1.1",
+    "netlify-cli": "^2.15.0",
+    "redoc-cli": "^0.8.6",
+    "swagger-combine": "^1.0.0"
+  }
+}
