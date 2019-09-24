@@ -52,15 +52,22 @@ const schemaConfig = {
 };
 
 // Add apis to config
-schemaConfig.apis = dirCont.map((dir) => {
-  return {
-    url: schemasFolder+'/'+dir+'/openapi.yaml',
-    paths: {
-      base: "/"+dir,
-    }
-  };
-});
-
+if (dirCont.length === 1) {
+  schemaConfig.apis = dirCont.map((dir) => {
+    return {
+      url: schemasFolder+'/'+dir+'/openapi.yaml'
+    };
+  });
+} else {
+  schemaConfig.apis = dirCont.map((dir) => {
+    return {
+      url: schemasFolder+'/'+dir+'/openapi.yaml',
+      paths: {
+        base: "/"+dir,
+      }
+    };
+  });
+}
 
 /// Combine schemas
 swaggerCombine(schemaConfig, (err, result) => {
